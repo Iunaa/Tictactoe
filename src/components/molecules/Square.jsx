@@ -4,7 +4,7 @@ import styles from "../molecules/square.module.scss";
 function Square ({value, onSquareClick}) {
 
     return(
-        <button className="square" onClick={onSquareClick}>{value}</button>
+        <button className={styles.square} onClick={onSquareClick}>{value}</button>
 
     );
 }
