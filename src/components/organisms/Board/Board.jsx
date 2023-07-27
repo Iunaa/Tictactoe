@@ -34,40 +34,16 @@ function Board() {
     
       <div className="status">{status}</div>
       <div className="board-row">
-      {
-      
-    //   squares.map(function(element, index))
-
+        {
         squares.map(function(element,index){
           return(
             <Square value={squares[index]} onSquareClick={() => handleClick(index)}/>
-            
           );
         })
-
-
       }
-
         
       </div>
-      <div className="board-row">
-         {
-        squares.map(function(element,index){
-          return(
-            <Square value={squares[index]} onSquareClick={() => handleClick(index)}/>
-          );
-        })
-      }
-      </div>
-      <div className="board-row">
-         {
-        squares.map(function(element,index){
-          return(
-            <Square value={squares[index]} onSquareClick={() => handleClick(index)}/>
-          );
-        })
-      }
-      </div>
+      
     </>
   );
 }
