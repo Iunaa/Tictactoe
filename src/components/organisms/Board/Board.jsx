@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Square from "../../molecules/Square";
-import "./board.scss";
+import styles from "./board.module.scss";
 
 function Board() {
   const[xIsNext, setXIsNext] = useState(true);
@@ -22,7 +22,9 @@ function Board() {
   }
  const winner = calculateWinner(squares);
   let status;
+  let reset = false;
   if (winner) {
+    reset = true;
     status = "Vencedor: " + winner;
   } else {
     status = "Próximo a jogar: " + (xIsNext ? "X" : "O");
@@ -30,10 +32,10 @@ function Board() {
 
 
   return(
-    <>
+    <div className={styles.container}>
     
-      <div className="status">{status}</div>
-      <div className="board-row">
+      <div className={styles.status}>{status}</div>
+      <div className={styles.board_row}>
         {
         squares.map(function(element,index){
           return(
@@ -43,8 +45,13 @@ function Board() {
       }
         
       </div>
+      {reset && (<button className={styles.restart} onClick={
+        () => {
+          setSquares(Array(9).fill(null))
+        }
+      }>Restart</button>)}
       
-    </>
+    </div>
   );
 }
 
@@ -67,5 +74,7 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+
 
 export default Board;

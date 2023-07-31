@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Board from './components/organisms/Board/Board';
 import Header from './components/organisms/Header/Header';
+import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
